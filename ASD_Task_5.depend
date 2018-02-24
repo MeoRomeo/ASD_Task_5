@@ -7,3 +7,18 @@
 	<windows.h>
 	<iostream>
 
+1519484456 source:e:\tugas\asd-adf\asd_task_5\player.cpp
+	"player.h"
+	<ctime>
+
+1519480373 e:\tugas\asd-adf\asd_task_5\player.h
+	"list.h"
+
+1519485036 e:\tugas\asd-adf\asd_task_5\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1519485046 source:e:\tugas\asd-adf\asd_task_5\list.cpp
+	"list.h"
+

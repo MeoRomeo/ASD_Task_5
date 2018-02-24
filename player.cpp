@@ -41,10 +41,46 @@ void shuffleList(List &L) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+      List L2;
+    createList(L2);
+    address T,P;
+    int maxx = 0;
+    int i = 0;
+    int num;
+    infotype x;
+    if(first(L)!=NULL){
+        address Q = first(L);
+        do{
+            maxx++;
+            Q = next(Q);
+        }while(Q!=first(L));
+
+        for(i=1;i<=maxx;i++){
+            cout<<"shufling "<<"("<<i<<"/"<<maxx<<")"<<endl;
+            do{
+                x.ID = randomInt(maxx);
+                T = findElmByID(L,x);
+                //cout<<x.ID<<endl;
+            }while(T==NULL && first(L)!=NULL);
+            if(T==first(L)){
+                deleteFirst(L,P);
+                insertFirst(L2,P);
+            }else if(T==last(L)){
+                deleteLast(L,P);
+                insertLast(L2,P);
+            }else{
+                deleteAfter(L,prev(T),P);
+                insertFirst(L2,P);
+            }
+        }
+        L = L2;
+        cout<<"Shuflled !"<<endl;
+    }
 
     //----------------------------------------
 }
+
+
 
 void sortListByID(List &L) {
     /**
@@ -53,11 +89,19 @@ void sortListByID(List &L) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+    List L2;
+    createList(L2);
+    address P;
+    if(first(L)!=NULL){
+        do{
+            deleteFirst(L,P);
+ //           insertAndSort(L2,P);
+        }while(first(L)!=NULL);
+    }
     //----------------------------------------
-
+L = L2;
 }
+
 
 void playRepeat(List &L, int n) {
     /**
@@ -66,11 +110,15 @@ void playRepeat(List &L, int n) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+     for(int i = 0;i<n;i++){
+        address Q = first(L);
+        do{
+            playMusic(Q);
+            Q=next(Q);
+        }while(Q!=first(L));
+    }
     //----------------------------------------
 }
-
 void deleteMusicByID(List &L, infotype x) {
     /**
     * IS : list L mungkin kosong
@@ -80,7 +128,23 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P;
+    address Q = findElmByID(L,x);
+    if(first(L)!=NULL){
+        if(Q!=NULL){
+            if(Q==first(L)){
+                deleteFirst(L,P);
+            }else if(Q==last(L)){
+                deleteLast(L,P);
+            }else{
+                deleteAfter(L,prev(Q),P);
+            }
+        }else{
+            cout<<"Q Is Not Found"<<endl;
+        }
+    }else{
+        cout<<"The List is EMPTY"<<endl;
+    }
 
     //----------------------------------------
 
